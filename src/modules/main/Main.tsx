@@ -98,9 +98,9 @@ const Main = () => {
           <section className="content">
             <Outlet />
           </section>
-          <Footer />
+         
         </div>
-       
+        <Footer />
         <ControlSidebar />
         <div
           id="sidebar-overlay"
