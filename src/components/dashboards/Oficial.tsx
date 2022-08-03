@@ -45,8 +45,8 @@ const Oficial = () => {
     const [labelsData, setLabelsData] = useState<any>([])
     const [alistadosTotais, setAlistados] = useState('')
     const [metasHoje, setMetasHoje] = useState<any>({})
-    const [destaques, setDestaques] = useState({praca: '', oficial: ''})
-    
+    const [destaques, setDestaques] = useState({ praca: '', oficial: '' })
+
 
     useEffect(() => {
         setLoading(true)
@@ -59,16 +59,16 @@ const Oficial = () => {
                 setLabelsData([helper[7].dia, helper[6].dia, helper[5].dia, helper[4].dia, helper[3].dia, helper[2].dia, helper[1].dia, helper[0].dia])
                 setMetasHoje(result.data.hojeMetas)
                 setAlistados(result.data.alitadosTotais)
-                setDestaques({praca: result.data.pracaDestaque, oficial: result.data.oficialDestaque})
+                setDestaques({ praca: result.data.pracaDestaque, oficial: result.data.oficialDestaque })
                 setLoading(false)
             }
 
         }
 
-     
+
 
         getAllMetas()
-      
+
     }, [])
     const labels = labelsData;
     const data = {
@@ -109,7 +109,19 @@ const Oficial = () => {
                 <div className="col-12 col-md-3 col-sm-3 col-lg-3">
                     <div className="info-box">
                         <span className="info-box-icon bg-info">
-                            <img alt="Oficial Destaque" width={55} src={`https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=png&user=${destaques.oficial}&direction=2&head_direction=3&size=l&gesture=sml&headonly=1`} />
+                            {loading &&
+                                <Player
+                                    autoplay
+                                    loop
+                                    src="https://assets2.lottiefiles.com/packages/lf20_ht6o1bdu.json"
+                                    style={{ width: '120px' }}
+                                >      </Player>
+                            }
+
+                            {!loading &&
+                                <img alt="Oficial Destaque" width={55} src={`https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=png&user=${destaques.oficial}&direction=2&head_direction=3&size=l&gesture=sml&headonly=1`} />
+
+                            }
                         </span>
                         <div className="info-box-content">
                             <span className="info-box-text">Oficial destaque</span>
@@ -121,7 +133,20 @@ const Oficial = () => {
                 <div className="col-12 col-md-3 col-sm-3 col-lg-3">
                     <div className="info-box">
                         <span className="info-box-icon bg-info">
-                            <img alt="Oficial Destaque" width={55} src={`https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=png&user=${destaques.praca}&direction=2&head_direction=3&size=l&gesture=sml&headonly=1`} />
+                            {loading &&
+                                <Player
+                                    autoplay
+                                    loop
+                                    src="https://assets2.lottiefiles.com/packages/lf20_ht6o1bdu.json"
+                                    style={{ width: '120px' }}
+                                >      </Player>
+                            }
+
+
+                            {!loading &&
+                                <img alt="Oficial Destaque" width={55} src={`https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=png&user=${destaques.praca}&direction=2&head_direction=3&size=l&gesture=sml&headonly=1`} />
+
+                            }
                         </span>
                         <div className="info-box-content">
                             <span className="info-box-text">Praça Destaque</span>
@@ -179,7 +204,7 @@ const Oficial = () => {
                                         Treinamento Básico I
                                         <span className="float-right"><b>{metasHoje.T1Hoje}</b>/5</span>
                                         <div className="progress progress-sm">
-                                            <div className="progress-bar bg-primary" style={{ width: (((metasHoje.T1Hoje * 100) / 5) + '%')} }></div>
+                                            <div className="progress-bar bg-primary" style={{ width: (((metasHoje.T1Hoje * 100) / 5) + '%') }}></div>
                                         </div>
                                     </div>
 
@@ -191,7 +216,7 @@ const Oficial = () => {
                                         </div>
                                     </div>
 
-                                    
+
 
                                 </div>
 

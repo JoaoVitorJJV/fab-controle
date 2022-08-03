@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="main-footer">
       <strong>
-        <span>Copyright © {DateTime.now().toFormat('y')} Matthaios e Paterneck, utilizando o template de </span>
+        <span>Copyright © {DateTime.now().toFormat('y')} Matheus Alves e João Vitor, utilizando o template de </span>
         <a href="https://erdkse.com" target="_blank" rel="noopener noreferrer">
           erdkse.com
         </a>
