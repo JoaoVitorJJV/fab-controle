@@ -33,7 +33,7 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'FMB - Controle de Metas',
+            text: 'FAB - Controle de Metas',
         },
     },
 };

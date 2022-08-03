@@ -166,7 +166,7 @@ const MenuSidebar = () => {
           className="brand-image img-circle elevation-3"
           style={{ opacity: '.8' }}
         />
-        <span className="brand-text font-weight-light">FMB Controle</span>
+        <span className="brand-text font-weight-light">FAB Controle</span>
       </Link>
       <div className="sidebar">
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
