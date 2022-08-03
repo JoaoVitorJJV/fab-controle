@@ -140,9 +140,9 @@ const Login = () => {
               </div>
             </div>
           </form>
-          <p className="mb-1">
+          {/* <p className="mb-1">
             <Link to="/forgot-password">Não possuo cadastro</Link>
-          </p>          
+          </p>           */}
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 import './index.css';
 import { AuthProvider } from './contexts/Auth/AuthProvider';
+import { BrowserRouter } from 'react-router-dom';
 
 toast.configure({
   autoClose: 3000,
@@ -27,10 +28,11 @@ Gatekeeper.initialize('08401b7e-da7e-4bf3-a9bf-6f594ae5fb02');
 
 ReactDOM.render(
   <Provider store={store}>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

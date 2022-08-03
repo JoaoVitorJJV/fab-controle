@@ -50,7 +50,7 @@ const App = () => {
   }, [windowSize]);
 
   return (
-    <BrowserRouter>
+    
 
       <Routes>
         <Route path="/login" element={<Login />}></Route>
@@ -113,7 +113,7 @@ const App = () => {
         </Route>
       </Routes>
 
-    </BrowserRouter>
+ 
   );
 };
 
