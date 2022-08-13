@@ -1,6 +1,6 @@
 {
   "name": "adminlte-3-react",
-  "version": "1.5.4",
+  "version": "1.5.7",
   "private": true,
   "engines": {
     "node": "16.x"

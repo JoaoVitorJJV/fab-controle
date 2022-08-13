@@ -23,6 +23,8 @@ export const RequireAuth = ({ children }: { children: JSX.Element }) => {
             if (!data.auth) {
                 navigate('/login')
             }
+        }else{
+            navigate('/login')
         }
 
         const rotasAC = [

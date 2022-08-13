@@ -69,7 +69,7 @@ const Login = () => {
       <div className="card card-outline card-primary">
         <div className="card-header text-center">
           <Link to="/" className="h1">
-            <b>FMB&nbsp;</b>
+            <b>FAB&nbsp;</b>
             <span>Controle</span>
           </Link>
         </div>
