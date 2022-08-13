@@ -140,7 +140,7 @@ const MeuPerfil = () => {
 
                 <div className="card card-primary">
                     <div className="card-header">
-                        <h3 className="card-title">Opnião dos Oficiais</h3>
+                        <h3 className="card-title">Opinião dos Oficiais</h3>
                     </div>
 
                     <div className="card-body">
@@ -168,7 +168,7 @@ const MeuPerfil = () => {
                         }
 
                         {opnioes.length === 0 &&
-                            <h5 className="text-muted">Esse usuário não possui opniões de oficiais</h5>
+                            <h5 className="text-muted">Esse usuário não possui opiniões de oficiais</h5>
                         }
 
                     </div>
