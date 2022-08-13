@@ -260,11 +260,12 @@ export const useApi= () => ({
 
         return response
     },
-    createAviso: async (nome: string, txt: string, tipo: string) => {
+    createAviso: async (nome: string, txt: string, tipo: string, titulo: any) => {
         const response = await api.post('/criar-aviso', {
             nome, 
             txt, 
-            tipo
+            tipo,
+            titulo
         })
 
         return response

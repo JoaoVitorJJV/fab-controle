@@ -1,8 +1,6 @@
-import { AuthContext } from "@app/contexts/Auth/AuthContext"
 import { useApi } from "@app/hooks/useApi"
-import api from "@app/services/api"
 import { Player } from "@lottiefiles/react-lottie-player"
-import { useContext, useEffect, useState } from "react"
+import { useState } from "react"
 import { toast } from "react-toastify"
 
 
@@ -11,22 +9,24 @@ const CriarAviso = () => {
     const [nome, setNome] = useState('')
     const [txt, setTxt] = useState('')
     const [tipo, setTipo] = useState('')
+    const [titulo, setTitulo] = useState('')
     const api = useApi()
 
 
     const handleSubmit = async () => {
         setLoading(true)
-        if(nome && txt){
-            const response = await api.createAviso(nome, txt, (tipo ? tipo : 'Global'))
-            if(response.data.auth){
+        if (nome && txt) {
+            console.log(tipo)
+            const response = await api.createAviso(nome, txt, (tipo ? tipo : 'Global'), titulo)
+            if (response.data.auth) {
                 toast.success(response.data.msg)
-            }else{
+            } else {
                 toast.error(response.data.msg)
             }
 
             setLoading(false)
-        }else{
-            
+        } else {
+
             setLoading(false)
             toast.error('Todos os campos precisam ser preenchidos.')
         }
@@ -61,12 +61,24 @@ const CriarAviso = () => {
                                             </div>
                                             <input type="text" id="user" onChange={(e) => setTxt(e.target.value)} className="form-control" />
                                         </div>
-                                    </div>                                    
+                                    </div>
+                                    {tipo && tipo === 'Novidades' &&
+
+                                        <div className="form-group">
+                                            <label htmlFor="user">Título do aviso</label>
+                                            <div className="input-group mb-3">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text"><i className="fas fa-comments"></i></span>
+                                                </div>
+                                                <input type="text" id="user" onChange={(e) => setTitulo(e.target.value)} className="form-control" />
+                                            </div>
+                                        </div>
+                                    }
                                     <div className="form-group">
                                         <label htmlFor="exampleInputFile">Tipo</label>
                                         <select className="custom-select" onChange={(e) => setTipo(e.target.value)} required>
                                             <option value="Global">Global</option>
-                                            <option value="Novidade">Novidade</option>
+                                            <option value="Novidades">Novidade</option>
                                         </select>
                                     </div>
                                     <label>O usuário precisa ser alistado.</label>
