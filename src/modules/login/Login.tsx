@@ -10,7 +10,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import * as Yup from 'yup';
 
 import {Form, InputGroup} from 'react-bootstrap';
-import * as AuthService from '../../services/auth';
 import { AuthContext } from '@app/contexts/Auth/AuthContext';
 
 const Login = () => {
@@ -140,9 +139,13 @@ const Login = () => {
               </div>
             </div>
           </form>
-          {/* <p className="mb-1">
+          {/* 
+          
+          <p className="mb-1">
             <Link to="/forgot-password">Não possuo cadastro</Link>
-          </p>           */}
+          </p>           
+          
+          */}
         </div>
       </div>
     </div>

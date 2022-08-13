@@ -79,8 +79,8 @@ const MeusRelatorios = () => {
                                 <Card.Header>
                                     <div key={relatorio.id} className="col-12 d-flex">
                                         <Accordion.Toggle as={Button} variant="link" eventKey={relatorio.id}>
-                                            <Button size="lg" variant={(relatorio.treino === "Treinamento Básico I" ? 'success' : (relatorio.treino === "Treinamento Básico II" ? 'info' : (relatorio.treino === "Treinamento Complementar I" ? 'warning' : (relatorio.treino === "Treinamento Complementar II" ? "danger" : ''))))}>
-                                                <b>{(relatorio.treino === "Treinamento Básico I" ? 'T1' : (relatorio.treino === "Treinamento Básico II" ? 'T2' : (relatorio.treino === "Treinamento Complementar I" ? 'T3' : (relatorio.treino === "Treinamento Complementar II" ? "T4" : ''))))}</b>
+                                            <Button size="lg" variant={(relatorio.treino === "Instrução Básica Militar" ? 'success' : (relatorio.treino === "Instrução Intermediária Militar" ? 'info' : (relatorio.treino === "Instrução Avançada Militar" ? 'warning' : '')))}>
+                                                <b>{(relatorio.treino === "Instrução Básica Militar" ? 'IBM' : (relatorio.treino === "Instrução Intermediária Militar" ? 'IIM' : (relatorio.treino === "Instrução Avançada Militar" ? 'IAM' : '')))}</b>
                                             </Button>
                                         </Accordion.Toggle>
 
@@ -102,7 +102,7 @@ const MeusRelatorios = () => {
                                                         &nbsp;&nbsp;
                                                         <img alt="lapis" src="/img/icons/joinha_estrelado.png" />
                                                         &nbsp;&nbsp;
-                                                        <b>Registrado por malta1999.</b>
+                                                        <b>Registrado por {relatorio.resp_nome}.</b>
                                                     </>
                                                 }
 
