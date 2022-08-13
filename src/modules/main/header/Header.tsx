@@ -1,15 +1,17 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleControlSidebar, toggleSidebarMenu } from '@app/store/reducers/ui';
 
 
 import UserDropdown from '@app/modules/main/header/user-dropdown/UserDropdown';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '@app/contexts/Auth/AuthContext';
 
 const Header = () => {
   const dispatch = useDispatch();
   const navbarVariant = useSelector((state: any) => state.ui.navbarVariant);
   const headerBorder = useSelector((state: any) => state.ui.headerBorder);
+  const logged = useContext(AuthContext)
 
   const handleToggleMenuSidebar = () => {
     dispatch(toggleSidebarMenu());
@@ -43,9 +45,18 @@ const Header = () => {
       </ul>
       <ul className="navbar-nav ml-auto">
         {/* <NotificationsDropdown /> */}
-        <Link to="/oficiais/central" target="_blank" className='d-flex align-items-center'>
-          <i className="fas fa-bullseye" aria-hidden="true"></i>
-        </Link>&nbsp;&nbsp;
+        {logged.user &&
+          <>
+            {logged.user.pat_id > 9 &&
+              <Link to="/oficiais/central" target="_blank" className='d-flex align-items-center'>
+                <i className="fas fa-bullseye" aria-hidden="true"></i>
+              </Link>
+            }
+
+          </>
+
+        }
+        &nbsp;&nbsp;
         <i className={`flag-icon flag-icon-br mr-2`} />
 
 
