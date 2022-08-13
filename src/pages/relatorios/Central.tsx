@@ -13,7 +13,7 @@ function Central() {
     const [relatoriosContagem, setRelatorioContagem] = useState(0)
     const [ticking, setTicking] = useState(true),
         [count, setCount] = useState(0)
-    const { lastJsonMessage, sendMessage } = useWebSocket('ws://fab-websocket.herokuapp.com/', {
+    const { lastJsonMessage, sendMessage } = useWebSocket('wss://fab-websocket.herokuapp.com/', {
         onMessage: (message) => {
 
         },
