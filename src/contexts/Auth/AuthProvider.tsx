@@ -12,14 +12,15 @@ export const AuthProvider = ({children} : {children: JSX.Element}) => {
 
     useEffect(() => {
         const validateToken = async () => {
-   
+           
             const storageData = localStorage.getItem('authToken')
    
             if(storageData){
-                const data = await api.validateToken(storageData);
-                if(data.auth){
-                    setUser(data.user)
-                }
+                await api.validateToken(storageData).then((res: any) => {
+                    setUser(res.data.user)
+                }).catch((err) => {
+                    navigate('/login')
+                })
             }else{
                 navigate('/login')
             }

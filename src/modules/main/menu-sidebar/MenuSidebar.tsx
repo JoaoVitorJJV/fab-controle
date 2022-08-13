@@ -1,4 +1,4 @@
-import { useContext} from 'react';
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MenuItem } from '@components';
@@ -70,6 +70,25 @@ var menusOficial = [
         path: '/oficiais/avisos'
       }
     ]
+  },
+
+]
+
+var menuAC = [
+  {
+    name: 'Alto Comando',
+    icon: 'fa-eye',
+    children: [
+      {
+        name: 'Usuários Painel',
+        path: '/oficiais/ac/usuarios'
+      },
+      {
+        name: 'Logs usuários',
+        path: '/oficiais/ac/logs'
+      },
+
+    ]
   }
 ]
 
@@ -133,7 +152,7 @@ const getPat = async () => {
             ]
           }
 
-          menusOficial.push(novoMenu)
+          // menusOficial.push(novoMenu)
         }
       }
     }
@@ -209,10 +228,20 @@ const MenuSidebar = () => {
                   </>
                 }
 
+                {logged.user.pat_id > 16 &&
+                  <>
+                    {
+                      menuAC.map((menuItem: IMenuItem) => (
+                        <MenuItem key={menuItem.name} menuItem={menuItem} />
+                      ))
+                    }
+                  </>
+                }
+
               </>
             }
             <li className="nav-header">PRAÇAS</li>
-            {menusPraca.map((menuItem: IMenuItem) => {              
+            {menusPraca.map((menuItem: IMenuItem) => {
               return <MenuItem key={menuItem.name} menuItem={menuItem} />
             })}
           </ul>

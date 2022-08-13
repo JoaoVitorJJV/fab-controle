@@ -201,7 +201,7 @@ const Oficial = () => {
                                         <strong>Treinamentos</strong>
                                     </p>
                                     <div className="progress-group">
-                                        Treinamento Básico I
+                                        Instrução Básica Militar
                                         <span className="float-right"><b>{metasHoje.T1Hoje}</b>/5</span>
                                         <div className="progress progress-sm">
                                             <div className="progress-bar bg-primary" style={{ width: (((metasHoje.T1Hoje * 100) / 5) + '%') }}></div>
@@ -209,15 +209,20 @@ const Oficial = () => {
                                     </div>
 
                                     <div className="progress-group">
-                                        Treinamento Básico II
-                                        <span className="float-right"><b>{metasHoje.T1Hoje}</b>/5</span>
+                                        Instrução Intermediária Militar
+                                        <span className="float-right"><b>{metasHoje.T2Hoje}</b>/5</span>
                                         <div className="progress progress-sm">
                                             <div className="progress-bar bg-danger" style={{ width: (((metasHoje.T2Hoje * 100) / 5) + '%') }}></div>
                                         </div>
                                     </div>
 
-
-
+                                    <div className="progress-group">
+                                        Instrução Avançada Militar
+                                        <span className="float-right"><b>{metasHoje.T3hoje}</b>/5</span>
+                                        <div className="progress progress-sm">
+                                            <div className="progress-bar bg-danger" style={{ width: (((metasHoje.T3Hoje * 100) / 5) + '%') }}></div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
