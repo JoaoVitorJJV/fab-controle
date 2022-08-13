@@ -30,6 +30,8 @@ import AvisosSite from './pages/site/AvisosSite';
 import CriarAviso from './pages/site/CriarAviso';
 import EditarAviso from './pages/site/EditarAvisos';
 import Configuracoes from './pages/Configuracoes';
+import Siglas from './pages/alistados/Siglas';
+import Central from './pages/relatorios/Central';
 // import Blank from '@pages/Blank';
 // import SubMenu from '@pages/SubMenu';
 // import Profile from '@pages/profile/Profile';
@@ -111,6 +113,10 @@ const App = () => {
         <Route path="/configuracoes/geral" element={<RequireAuth><Main/></RequireAuth>}>
           <Route path="/configuracoes/geral" element={<Configuracoes/>}></Route>
         </Route>
+        <Route path="/oficiais/siglas" element={<RequireAuth><Main/></RequireAuth>}>
+          <Route path="/oficiais/siglas" element={<Siglas/>}></Route>
+        </Route>
+        <Route path="/oficiais/central" element={<RequireAuth><Central/></RequireAuth>}></Route>
       </Routes>
 
  

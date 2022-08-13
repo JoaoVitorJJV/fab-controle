@@ -1,9 +1,10 @@
-import {useCallback} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {toggleControlSidebar, toggleSidebarMenu} from '@app/store/reducers/ui';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleControlSidebar, toggleSidebarMenu } from '@app/store/reducers/ui';
 
 
 import UserDropdown from '@app/modules/main/header/user-dropdown/UserDropdown';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -38,11 +39,16 @@ const Header = () => {
         <li className="nav-item d-none d-sm-inline-block">
           ❝Asas que protegem o país❞
         </li>
-        
+
       </ul>
-      <ul className="navbar-nav ml-auto">    
+      <ul className="navbar-nav ml-auto">
         {/* <NotificationsDropdown /> */}
+        <Link to="/oficiais/central" target="_blank" className='d-flex align-items-center'>
+          <i className="fas fa-bullseye" aria-hidden="true"></i>
+        </Link>&nbsp;&nbsp;
         <i className={`flag-icon flag-icon-br mr-2`} />
+
+
         {/* <LanguagesDropdown /> */}
         <UserDropdown />
         {/* <li className="nav-item">

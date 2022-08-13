@@ -33,6 +33,10 @@ var menusOficial = [
         path: '/oficiais/acoes-alistados'
       },
       {
+        name: 'Siglas',
+        path: '/oficiais/siglas'
+      },
+      {
         name: 'Alistados',
         path: '/oficiais/alistados'
       },

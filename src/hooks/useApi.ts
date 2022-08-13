@@ -288,5 +288,31 @@ export const useApi= () => ({
         })
 
         return response
+    },
+    getSiglas: async () => {
+        const response = await api.get('/siglas')
+
+        return response
+    },
+    setSigla: async (nome: string, sigla: string) => {
+        const response = await api.post('/siglas/inserir', {
+            nome, sigla
+        })
+
+        return response
+    },
+    destroySigla: async (nome: string, sigla: string) => {
+        const response = await api.post('/siglas/remover', {
+            nome, sigla
+        })
+
+        return response
+    },
+    aceitarRel: async (idRel: any) => {
+        const response = await api.post('/central/aceitar', {
+            idRel
+        })
+
+        return response
     }
 })
