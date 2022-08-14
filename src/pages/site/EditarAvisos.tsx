@@ -1,6 +1,5 @@
 import { AuthContext } from "@app/contexts/Auth/AuthContext"
 import { useApi } from "@app/hooks/useApi"
-import api from "@app/services/api"
 import { Player } from "@lottiefiles/react-lottie-player"
 import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -19,6 +18,7 @@ const EditarAviso = () => {
     const [nome, setNome] = useState('')
     const [txt, setTxt] = useState('')
     const [tipo, setTipo] = useState('')
+    const [titulo, setTitulo] = useState('')
     const logged = useContext(AuthContext)
     const api = useApi()
     let { id } = useParams()
@@ -45,7 +45,7 @@ const EditarAviso = () => {
         var tipoVer = (tipo ? tipo : dados.tipo)
 
 
-        const response = await api.editAviso(dados.id, nomeVer, textoVer, tipoVer)
+        const response = await api.editAviso(dados.id, nomeVer, textoVer, tipoVer, titulo)
 
         if (response.data.auth) {
             toast.success(response.data.msg)
@@ -86,7 +86,19 @@ const EditarAviso = () => {
                                             </div>
                                             <input type="text" id="user" onChange={(e) => setTxt(e.target.value)} value={(txt ? txt : dados.texto)} className="form-control" />
                                         </div>
-                                    </div>                                    
+                                    </div>
+                                    {tipo && tipo === 'Novidades' &&
+
+                                        <div className="form-group">
+                                            <label htmlFor="user">Título do aviso</label>
+                                            <div className="input-group mb-3">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text"><i className="fas fa-comments"></i></span>
+                                                </div>
+                                                <input type="text" id="user" onChange={(e) => setTitulo(e.target.value)} className="form-control" />
+                                            </div>
+                                        </div>
+                                    }
                                     <div className="form-group">
                                         <label htmlFor="exampleInputFile">Tipo</label>
                                         <select className="custom-select" onChange={(e) => setTipo(e.target.value)} required>

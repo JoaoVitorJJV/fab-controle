@@ -280,12 +280,13 @@ export const useApi= () => ({
 
         return response
     },
-    editAviso: async (id: any, nome: string, txt: string, tipo: string) => {
+    editAviso: async (id: any, nome: string, txt: string, tipo: string, titulo: any) => {
         const response = await api.post('/editar-aviso', {
             id,
             nome,
             txt, 
-            tipo
+            tipo,
+            titulo
         })
 
         return response
