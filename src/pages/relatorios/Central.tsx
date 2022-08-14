@@ -16,7 +16,7 @@ function Central() {
         [treinos, setTreinos] = useState([])
     
     
-    const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.0.104:3002/', {
+    const { lastJsonMessage, sendMessage } = useWebSocket('wss://fab-websocket.herokuapp.com/', {
         onMessage: (message) => {
 
         },
