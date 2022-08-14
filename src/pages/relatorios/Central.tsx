@@ -12,8 +12,11 @@ function Central() {
     const [verNotf, setVerNotf] = useState(false)
     const [relatoriosContagem, setRelatorioContagem] = useState(0)
     const [ticking, setTicking] = useState(true),
-        [count, setCount] = useState(0)
-    const { lastJsonMessage, sendMessage } = useWebSocket('wss://fab-websocket.herokuapp.com/', {
+        [count, setCount] = useState(0),
+        [treinos, setTreinos] = useState([])
+    
+    
+    const { lastJsonMessage, sendMessage } = useWebSocket('ws://192.168.0.104:3002/', {
         onMessage: (message) => {
 
         },
@@ -87,6 +90,19 @@ function Central() {
         return () => clearTimeout(timer)
     }, [count, ticking])
 
+    useEffect(() => {
+        const getAllTreinos = async () => {
+            const res = await api.getTreinamentos()
+
+            if(res.data.auth){
+                setTreinos(res.data.treinos)
+            }
+        }
+
+        getAllTreinos()
+
+    }, [])
+
     const criarNotf = (qtd: any) => {
 
         if (Notification.permission !== 'granted')
@@ -96,9 +112,7 @@ function Central() {
                 icon: '/img/relatorio.png',
                 body: `Há ${qtd} relatórios aguardando correção`,
             });
-            notification.onclick = function () {
-                window.open('http://stackoverflow.com/a/13328397/1269037');
-            };
+            
         }
 
     }
@@ -123,6 +137,18 @@ function Central() {
 
                         const diaEnvio = data.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
                         const horaEnvio = data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+                        var corBtn = 'btn btn-sm btn-squared-default btn-info'
+                        var siglaTreino = '';
+                        if(treinos){
+                            treinos.map((treino: any) => {
+                
+                                if(treino.nome === rel.treino){
+                                    siglaTreino = treino.sigla
+                                    corBtn = `btn btn-sm btn-squared-default btn-${treino.cor}`
+                                }
+                            })
+                        }
+
 
                         return (
                             <div className="card" key={(rel.id + 1)}>
@@ -136,7 +162,7 @@ function Central() {
                                                     {horaEnvio}
                                                 </small>
                                             </span>
-                                            <button className={`btn btn-sm btn-squared-default btn-${(rel.treino === 'Instrução Básica Militar' ? 'success' : (rel.treino === 'Instrução Intermediária Militar' ? 'danger' : (rel.treino === 'Instrução Avançada Militar' ? 'warning' : 'info')))}`}><strong>{(rel.treino === 'Instrução Básica Militar' ? 'IBM' : (rel.treino === 'Instrução Intermediária Militar' ? 'IIM' : (rel.treino === 'Instrução Avançada Militar' ? 'IAM' : '')))}</strong></button>
+                                            <button className={corBtn}><strong>{siglaTreino}</strong></button>
                                             <strong>&nbsp;&nbsp;(ID: #{rel.id}) {rel.treino} - Sala {rel.sala}</strong><br />T: {rel.trei_nome}<br />
                                             <span className="float-right">
                                                 Responsável: &nbsp;&nbsp;

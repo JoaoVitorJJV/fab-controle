@@ -9,6 +9,7 @@ const MeusRelatorios = () => {
     const [relatorios, setRelatorios] = useState([])
     const [loading, setLoading] = useState<Boolean>(false)
     const [relVazio, setRelVazio] = useState<Boolean>(false)
+    const [treinos, setTreinos] = useState([])
     const api = useApi()
     const logged = useContext(AuthContext)
 
@@ -32,6 +33,15 @@ const MeusRelatorios = () => {
 
         }
 
+        const getAllTreinos = async () => {
+            const res = await api.getTreinamentos()
+
+            if(res.data.auth){
+                setTreinos(res.data.treinos)
+            }
+        }
+
+        getAllTreinos()
         getRelatorios()
 
     }, [])
@@ -70,6 +80,18 @@ const MeusRelatorios = () => {
 
                             var verificado = false;
 
+                            var corBtn = 'info'
+                            var siglaTreino = '';
+                            if(treinos){
+                                treinos.map((treino: any) => {
+                    
+                                    if(treino.nome === relatorio.treino){
+                                        siglaTreino = treino.sigla
+                                        corBtn = treino.cor
+                                    }
+                                })
+                            }
+
                             if (relatorio.status === 'Corrigido') {
                                 verificado = true
                             }
@@ -79,8 +101,8 @@ const MeusRelatorios = () => {
                                 <Card.Header>
                                     <div key={relatorio.id} className="col-12 d-flex">
                                         <Accordion.Toggle as={Button} variant="link" eventKey={relatorio.id}>
-                                            <Button size="lg" variant={(relatorio.treino === "Instrução Básica Militar" ? 'success' : (relatorio.treino === "Instrução Intermediária Militar" ? 'info' : (relatorio.treino === "Instrução Avançada Militar" ? 'warning' : '')))}>
-                                                <b>{(relatorio.treino === "Instrução Básica Militar" ? 'IBM' : (relatorio.treino === "Instrução Intermediária Militar" ? 'IIM' : (relatorio.treino === "Instrução Avançada Militar" ? 'IAM' : '')))}</b>
+                                            <Button size="lg" variant={(corBtn)}>
+                                                <b>{siglaTreino}</b>
                                             </Button>
                                         </Accordion.Toggle>
 
