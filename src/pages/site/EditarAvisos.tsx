@@ -12,7 +12,8 @@ const EditarAviso = () => {
         nome: '',
         texto: '',
         tipo: '',
-        datetime: ''
+        datetime: '',
+        titulo: ''
     })
     const [loading, setLoading] = useState(false)
     const [nome, setNome] = useState('')
@@ -87,7 +88,7 @@ const EditarAviso = () => {
                                             <input type="text" id="user" onChange={(e) => setTxt(e.target.value)} value={(txt ? txt : dados.texto)} className="form-control" />
                                         </div>
                                     </div>
-                                    {tipo && tipo === 'Novidades' &&
+                                    {dados.tipo && dados.tipo === 'Novidades' &&
 
                                         <div className="form-group">
                                             <label htmlFor="user">Título do aviso</label>
@@ -95,7 +96,7 @@ const EditarAviso = () => {
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text"><i className="fas fa-comments"></i></span>
                                                 </div>
-                                                <input type="text" id="user" onChange={(e) => setTitulo(e.target.value)} className="form-control" />
+                                                <input type="text" id="user" onChange={(e) => setTitulo(e.target.value)} className="form-control" value={(titulo ? titulo : dados.titulo)} />
                                             </div>
                                         </div>
                                     }
