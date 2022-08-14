@@ -271,7 +271,7 @@ export const useApi= () => ({
         return response
     },
     getAvisos: async () => {
-        const response = await api.get('/avisos')
+        const response = await api.get('/avisos/painel')
 
         return response
     },

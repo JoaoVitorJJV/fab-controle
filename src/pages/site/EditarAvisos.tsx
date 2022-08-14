@@ -65,7 +65,7 @@ const EditarAviso = () => {
 
                         <div className="card card-primary">
                             <div className="card-header">
-                                <h3 className="card-title"><img src="/img/icons/estrela.png" />&nbsp;Criar novo destaque</h3>
+                                <h3 className="card-title"><img src="/img/icons/estrela.png" />&nbsp;Editar aviso</h3>
                             </div>
                             <form onClick={(e) => e.preventDefault()}>
                                 <div className="card-body">

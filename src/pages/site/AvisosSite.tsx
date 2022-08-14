@@ -8,20 +8,7 @@ import { useNavigate } from "react-router-dom"
 const AvisosSite = () => {
     const api = useApi()
     const navigate = useNavigate()
-    const [avisos, setAvisos] = useState({
-        global: {
-            id: '',
-            nome: '',
-            texto: '',
-            tipo: '',
-        },
-        novidades: {
-            id: '',
-            nome: '',
-            texto: '',
-            tipo: '',
-        }
-    })
+    const [avisos, setAvisos] = useState([])
     const [verTabela, setVerTabela] = useState(false)
 
 
@@ -31,25 +18,7 @@ const AvisosSite = () => {
             const res = await api.getAvisos()
 
             if (res.data.auth) {
-                const helperGlobal = res.data.dados.global
-                const helperNovidades = res.data.dados.novidades
-
-                var dadosState = {
-                    global: {
-                        id: helperGlobal.id,
-                        nome: helperGlobal.nome,
-                        texto: helperGlobal.texto,
-                        tipo: helperGlobal.tipo
-                    },
-                    novidades: {
-                        id: helperGlobal.id,
-                        nome: helperNovidades.nome,
-                        texto: helperNovidades.texto,
-                        tipo: helperNovidades.tipo
-                    }
-                }
-
-                setAvisos(dadosState)
+                setAvisos(res.data.avisos)
                 setVerTabela(true)
             }
         }
@@ -81,34 +50,33 @@ const AvisosSite = () => {
                                         <th>Nome</th>
                                         <th>Texto</th>
                                         <th>Tipo</th>
+
+                                        <th>Titulo</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>{avisos.global.nome}</td>
-                                        <td>{avisos.global.texto}</td>
-                                        <td>
-                                            {avisos.global.tipo}
-                                        </td>
-                                        <td>
-                                            <Button variant="warning" onClick={() => navigate(`/oficiais/avisos/editar/${avisos.global.id}`)} size="sm">
-                                                <i className="fa fa-pen"></i>
-                                            </Button>&nbsp;&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>{avisos.novidades.nome}</td>
-                                        <td>{avisos.novidades.texto}</td>
-                                        <td>
-                                            {avisos.novidades.tipo}
-                                        </td>
-                                        <td>
-                                            <Button variant="warning" onClick={() => navigate(`/oficiais/destaque/editar/${avisos.novidades.id}`)} size="sm">
-                                                <i className="fa fa-pen"></i>
-                                            </Button>&nbsp;&nbsp;
-                                        </td>
-                                    </tr>
+                                    {avisos &&
+                                        <>
+                                            {
+                                                avisos.map((aviso: any) => (
+                                                    <tr>
+
+
+                                                        <td>{aviso.nome}</td>
+                                                        <td>{aviso.texto}</td>
+                                                        <td>{aviso.tipo}</td>
+                                                        <td>{aviso.titulo}</td>
+                                                        <td>
+                                                            <Button variant="warning" onClick={() => navigate(`/oficiais/avisos/editar/${aviso.id}`)} size="sm">
+                                                                <i className="fa fa-pen"></i>
+                                                            </Button>&nbsp;&nbsp;
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
+                                        </>
+                                    }
                                 </tbody>
                             </Table>
                         }
