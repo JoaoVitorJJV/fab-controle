@@ -217,10 +217,17 @@ const Oficial = () => {
                                     </div>
 
                                     <div className="progress-group">
-                                        Instrução Avançada Militar
+                                        Treinamento Complementar I
                                         <span className="float-right"><b>{metasHoje.T3hoje}</b>/5</span>
                                         <div className="progress progress-sm">
                                             <div className="progress-bar bg-danger" style={{ width: (((metasHoje.T3Hoje * 100) / 5) + '%') }}></div>
+                                        </div>
+                                    </div>
+                                    <div className="progress-group">
+                                        Treinamento Complementar II
+                                        <span className="float-right"><b>{metasHoje.T3hoje}</b>/5</span>
+                                        <div className="progress progress-sm">
+                                            <div className="progress-bar bg-danger" style={{ width: (((metasHoje.T4Hoje * 100) / 5) + '%') }}></div>
                                         </div>
                                     </div>
                                 </div>

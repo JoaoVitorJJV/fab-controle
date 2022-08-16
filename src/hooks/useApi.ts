@@ -121,6 +121,13 @@ export const useApi= () => ({
 
         return response
     },
+    deleteUsuario: async (nome: string) => {
+        const response = await api.post('/usuarios/deletar', {
+            nome
+        })
+
+        return response
+    },
     getPatentesPraca: async () => {
         const response = await api.get('/patentes-praca')
 

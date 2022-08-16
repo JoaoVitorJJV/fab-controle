@@ -3,6 +3,7 @@ import { useApi } from "@app/hooks/useApi"
 import { Player } from "@lottiefiles/react-lottie-player"
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
+import { Button, Modal } from "react-bootstrap"
 import { toast } from "react-toastify"
 
 const CriarRelatorio = () => {
@@ -12,7 +13,7 @@ const CriarRelatorio = () => {
     const [treinos, setTreinos] = useState<any>([])
     const api = useApi()
     const logged = useContext(AuthContext)
-
+    const [showExcluir, setShowVer] = useState(true)
 
     //Relatorio
     const [ofcResp, setOficialResp] = useState<any>('')
@@ -25,7 +26,7 @@ const CriarRelatorio = () => {
     const [observacoes, setObservacoes] = useState('')
     const [aprovados, setAprovados] = useState('')
     const [patenteTreinados, setPatenteTreinados] = useState('')
-
+    const [txtBtn, setTxtBtn] = useState('Aguarde...')
 
     const [loading, setLoading] = useState(false)
     const [semAprovados, setSemAprovados] = useState(false)
@@ -97,6 +98,7 @@ const CriarRelatorio = () => {
                     setObservacoes('')
                     setAprovados('')
                     setPatenteTreinados('')
+                    setTxtBtn('Pronto!')
                     setLoading(false)
                 } else {
                     toast.error(response.data.msg)
@@ -107,8 +109,10 @@ const CriarRelatorio = () => {
                 toast.error('Os campos precisam ser preenchidos corretamente.')
             }
         }
-        
+
     }
+
+    const handleCloseExcluir = () => setShowVer(false)
 
     useEffect(() => {
 
@@ -220,7 +224,7 @@ const CriarRelatorio = () => {
                                 <div className="col-sm-6">
                                     <div className="form-group">
                                         <label>&nbsp;</label>
-                                        <input type="text" className="form-control" onChange={(e) => setTreinamento({ nome: treinamento.nome, sala: e.target.value })} placeholder="Sala 1" required />
+                                        <input type="number" className="form-control" onChange={(e) => setTreinamento({ nome: treinamento.nome, sala: e.target.value })} placeholder="Sala" required />
                                     </div>
                                 </div>
                             </div>
@@ -358,6 +362,34 @@ const CriarRelatorio = () => {
                             </button>
                         </form>
                     </div>
+
+                    <Modal centered show={loading} onHide={handleCloseExcluir}>
+                        <Modal.Header closeButton>
+                            <Modal.Title id="contained-modal-title-vcenter">
+                                Alerta
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="row">
+                                <div className="col-12">
+                                    <h6>Estamos enviando seu relatório, por favor, não saia da página...</h6>
+                                    <Player
+                                        autoplay
+                                        loop
+                                        src="https://assets1.lottiefiles.com/packages/lf20_QJbPLt.json"
+                                        style={{ width: '200px' }}
+                                    >
+
+                                    </Player>
+                                </div>
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button disabled={true} variant="success" onClick={handleCloseExcluir}>
+                                {txtBtn}
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
 
                 </div>
             </div >

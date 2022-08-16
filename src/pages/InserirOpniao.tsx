@@ -39,7 +39,7 @@ const InserirOpniao = () => {
 
                         <div className="card card-primary">
                             <div className="card-header">
-                                <h3 className="card-title"><img src="/img/icons/comentarios.png" />&nbsp;Dar opnião</h3>
+                                <h3 className="card-title"><img src="/img/icons/comentarios.png" />&nbsp;Dar Opinião</h3>
                             </div>
                             <form onClick={(e) => e.preventDefault()}>
                                 <div className="card-body">
@@ -53,7 +53,7 @@ const InserirOpniao = () => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="user">Opnião</label>
+                                        <label htmlFor="user">Opinião</label>
                                         <div className="input-group mb-3">
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text"><i className="fas fa-comments"></i></span>

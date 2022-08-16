@@ -45,7 +45,7 @@ var menusOficial = [
         path: '/oficiais/criar-usuario'
       },
       {
-        name: 'Inserir opnião',
+        name: 'Inserir Opinião',
         path: '/oficiais/inserir-opniao'
       },
 
