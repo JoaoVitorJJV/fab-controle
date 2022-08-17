@@ -323,5 +323,10 @@ export const useApi= () => ({
         })
 
         return response
+    },
+    pesquisaMilitar: async (nome: string) => {
+        const response = await api.get(`/alistado?nome=${nome}`)
+
+        return response
     }
 })

@@ -1,0 +1,105 @@
+/*Form*/
+
+.military-search .form  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: -55px;
+  padding-bottom: 55px;
+}
+.military-search input {
+  max-width: 590px;
+  width: 100%;
+  height: 50px;
+  padding-left: 45px;
+  border: 0;
+  font-size: 14pt;
+  background: var(--Blue900);
+  color: var(--White);
+  border-radius: 15px;
+  box-shadow: var(--Shadow);
+}
+.military-search button {
+  background-color: transparent;
+  border:0;
+  border-color: transparent;
+}
+.military-search .button--image-search {
+  margin-left: -80px;
+
+  position: relative;
+}
+/*End Form*/
+
+/*Results*/
+.military-search--researching-military {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -64px;
+}
+.military-search--researching-military .military-search--arrow-up {
+  display: inline-block;
+  margin-bottom: -8px;
+  margin-left: 10px;
+  width: 0px;
+  height: 0px;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid var(--Blue500);
+}
+.military-search--researching-military .card-military-search--search-result {
+  width: 100%;
+  background-color: var(--Blue500);
+  height:250px;
+  border:0;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 25px;
+  padding: 15px;
+}
+.military-search--researching-military .card--researching-military {
+  width: 100%;
+  background-color: var(--Blue500);
+  height:55px;
+  border:0;
+
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: row;
+  gap: 25px;
+  padding: 15px;
+}
+.military-search--researching-military .military-search--circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--Blue900);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.military-search--researching-military .military-search--result {
+  display: flex;
+  flex-direction: column;
+
+  color: var(--Blue900);
+}
+.military-search--researching-military .military-search--image-loading {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+#resultado {
+    margin-top:-120px;
+}
+.spinner-grow {
+    background-image:url('https://www.habbo.com.br/habbo-imaging/badge/b05064s36114s43114s401147fa9d94746d7d71f49e21f0fcf79f6df.gif');
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+/*End Results*/

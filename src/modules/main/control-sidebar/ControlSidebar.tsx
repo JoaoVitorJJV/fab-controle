@@ -102,7 +102,7 @@ const ControlSidebar = () => {
     >
       <h5>Customize AdminLTE</h5>
       <hr className="mb-2" />
-
+AAAAAAAAAAAAAAAA
       <div style={{padding: '8px 0'}}>
         <div className="mb-4">
           <Checkbox checked={darkMode} onChange={handleDarkModeChange}>
