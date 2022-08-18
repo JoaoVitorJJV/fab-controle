@@ -68,6 +68,10 @@ var menusOficial = [
       {
         name: 'Avisos site',
         path: '/oficiais/avisos'
+      },
+      {
+        name: 'Slides',
+        path: '/oficiais/slides'
       }
     ]
   },

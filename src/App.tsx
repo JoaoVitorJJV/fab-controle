@@ -32,6 +32,9 @@ import EditarAviso from './pages/site/EditarAvisos';
 import Configuracoes from './pages/Configuracoes';
 import Siglas from './pages/alistados/Siglas';
 import Central from './pages/relatorios/Central';
+import Slides from './pages/site/Slides';
+import CriarSlide from './pages/site/CriarSlide';
+import EditarSlides from './pages/site/EditarSlide';
 // import Blank from '@pages/Blank';
 // import SubMenu from '@pages/SubMenu';
 // import Profile from '@pages/profile/Profile';
@@ -52,74 +55,83 @@ const App = () => {
   }, [windowSize]);
 
   return (
-    
 
-      <Routes>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/" element={<Dashboard />}></Route>
-        </Route>
-        <Route path="/oficiais/acoes-alistados" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/acoes-alistados" element={<AcoesAlistados />}></Route>
-        </Route>
-        <Route path="/oficiais/alistados" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/alistados" element={<Alistados />}></Route>
-        </Route>
-        <Route path="/oficiais/relatorios" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/relatorios" element={<RelatoriosOficiais />}></Route>
-        </Route>
-        <Route path='/oficiais/criar-usuario' element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/criar-usuario" element={<CriarUsuario />}></Route>
-        </Route>
-        <Route path="/oficiais/ac/logs" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/ac/logs" element={<LogsUsuarios />}></Route>
-        </Route>
-        <Route path="/oficiais/ac/usuarios" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/ac/usuarios" element={<UsuariosPainel />}></Route>
-        </Route>
-        <Route path="/oficiais/ac/editar-usuario" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/ac/editar-usuario/:user" element={<EditarUsuario />}></Route>
-        </Route>
-        <Route path="/pracas/criar-relatorio" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/pracas/criar-relatorio" element={<CriarRelatorio />}></Route>
-        </Route>
-        <Route path="/pracas/meus-relatorios" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/pracas/meus-relatorios" element={<MeusRelatorios />}></Route>
-        </Route>
-        <Route path="/pracas/meu-perfil" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/pracas/meu-perfil" element={<MeuPerfil />}></Route>
-        </Route>
-        <Route path="/oficiais/inserir-opniao" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/inserir-opniao" element={<InserirOpniao />}></Route>
-        </Route>
-        <Route path="/oficiais/destaques" element={<RequireAuth><Main /></RequireAuth>}>
-          <Route path="/oficiais/destaques" element={<Destaques />}></Route>
-        </Route>
-        <Route path="/oficiais/destaque/criar" element={<RequireAuth><Main/></RequireAuth>}>
-            <Route path="/oficiais/destaque/criar" element={<CriarDestaque/>}></Route>
-        </Route>
-        <Route path="/oficiais/destaque/editar" element={<RequireAuth><Main/></RequireAuth>}>
-          <Route path="/oficiais/destaque/editar/:nick" element={<EditarDestaque/>}></Route>
-        </Route>
-        <Route path="/oficiais/avisos" element={<RequireAuth><Main/></RequireAuth>}>
-            <Route path="/oficiais/avisos" element={<AvisosSite/>}></Route>
-        </Route>
-        <Route path="/oficiais/avisos/criar" element={<RequireAuth><Main/></RequireAuth>}>
-          <Route path="/oficiais/avisos/criar" element={<CriarAviso/>}></Route>
-        </Route>
-        <Route path="/oficiais/avisos/editar/:id" element={<RequireAuth><Main/></RequireAuth>}>
-          <Route path="/oficiais/avisos/editar/:id" element={<EditarAviso/>}></Route>
-        </Route>
-        <Route path="/configuracoes/geral" element={<RequireAuth><Main/></RequireAuth>}>
-          <Route path="/configuracoes/geral" element={<Configuracoes/>}></Route>
-        </Route>
-        <Route path="/oficiais/siglas" element={<RequireAuth><Main/></RequireAuth>}>
-          <Route path="/oficiais/siglas" element={<Siglas/>}></Route>
-        </Route>
-        <Route path="/oficiais/central" element={<RequireAuth><Central/></RequireAuth>}></Route>
-      </Routes>
 
- 
+    <Routes>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/" element={<Dashboard />}></Route>
+      </Route>
+      <Route path="/oficiais/acoes-alistados" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/acoes-alistados" element={<AcoesAlistados />}></Route>
+      </Route>
+      <Route path="/oficiais/alistados" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/alistados" element={<Alistados />}></Route>
+      </Route>
+      <Route path="/oficiais/relatorios" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/relatorios" element={<RelatoriosOficiais />}></Route>
+      </Route>
+      <Route path='/oficiais/criar-usuario' element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/criar-usuario" element={<CriarUsuario />}></Route>
+      </Route>
+      <Route path="/oficiais/ac/logs" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/ac/logs" element={<LogsUsuarios />}></Route>
+      </Route>
+      <Route path="/oficiais/ac/usuarios" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/ac/usuarios" element={<UsuariosPainel />}></Route>
+      </Route>
+      <Route path="/oficiais/ac/editar-usuario" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/ac/editar-usuario/:user" element={<EditarUsuario />}></Route>
+      </Route>
+      <Route path="/pracas/criar-relatorio" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/pracas/criar-relatorio" element={<CriarRelatorio />}></Route>
+      </Route>
+      <Route path="/pracas/meus-relatorios" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/pracas/meus-relatorios" element={<MeusRelatorios />}></Route>
+      </Route>
+      <Route path="/pracas/meu-perfil" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/pracas/meu-perfil" element={<MeuPerfil />}></Route>
+      </Route>
+      <Route path="/oficiais/inserir-opniao" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/inserir-opniao" element={<InserirOpniao />}></Route>
+      </Route>
+      <Route path="/oficiais/destaques" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/destaques" element={<Destaques />}></Route>
+      </Route>
+      <Route path="/oficiais/destaque/criar" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/destaque/criar" element={<CriarDestaque />}></Route>
+      </Route>
+      <Route path="/oficiais/destaque/editar" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/destaque/editar/:nick" element={<EditarDestaque />}></Route>
+      </Route>
+      <Route path="/oficiais/avisos" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/avisos" element={<AvisosSite />}></Route>
+      </Route>
+      <Route path="/oficiais/avisos/criar" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/avisos/criar" element={<CriarAviso />}></Route>
+      </Route>
+      <Route path="/oficiais/avisos/editar/:id" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/avisos/editar/:id" element={<EditarAviso />}></Route>
+      </Route>
+      <Route path="/configuracoes/geral" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/configuracoes/geral" element={<Configuracoes />}></Route>
+      </Route>
+      <Route path="/oficiais/siglas" element={<RequireAuth><Main /></RequireAuth>}>
+        <Route path="/oficiais/siglas" element={<Siglas />}></Route>
+      </Route>
+      <Route path="/oficiais/central" element={<RequireAuth><Central /></RequireAuth>}></Route>
+      <Route path='/oficiais/slides' element={<RequireAuth><Main/></RequireAuth>}>
+        <Route path="/oficiais/slides" element={<Slides />}></Route>
+      </Route>
+      <Route path='/oficiais/slides/criar' element={<RequireAuth><Main/></RequireAuth>}>
+        <Route path="/oficiais/slides/criar" element={<CriarSlide />}></Route>
+      </Route>
+      <Route path="/oficiais/slides/editar/:id" element={<RequireAuth><Main/></RequireAuth>}>
+        <Route path="/oficiais/slides/editar/:id" element={<EditarSlides/>}></Route>
+      </Route>
+    </Routes>
+
+
   );
 };
 

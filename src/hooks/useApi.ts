@@ -328,5 +328,51 @@ export const useApi= () => ({
         const response = await api.get(`/alistado?nome=${nome}`)
 
         return response
+    },
+    criarSlide: async (slideAlt: string, urlImagem: string, urlDirecao: string) => {
+        const response = await api.post('/slides/criar', {
+            slideAlt,
+            urlDirecao,
+            urlImagem
+        })
+
+        return response
+    },
+    getSlides: async () => {
+        const response = await api.get('/slides')
+
+        return response
+    },
+    trocarSlide: async (posAtual: any, direcao: string, id: any) => {
+        const response = await api.post('/slides/trocar-posicao', {
+            posAtual,
+            direcao,
+            id
+        })
+
+        return response
+    },
+    getSlideID: async (id: any) => {
+        const response = await api.get(`/slide?id=${id}`)
+
+        return response
+    },
+    editSlide: async (id: any, slideAlt: string, urlImagem: string, urlDirecao: string) => {
+        const response = await api.post('/slide/editar', {
+            id,
+            slideAlt,
+            urlImagem,
+            urlDirecao
+        })
+
+        return response
+
+    },
+    excluirSlide: async (id: any) => {
+        const response = await api.post('/slide/excluir', {
+            id
+        })
+
+        return response
     }
 })
