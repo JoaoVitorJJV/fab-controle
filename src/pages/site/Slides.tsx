@@ -80,12 +80,12 @@ const Slides = () => {
                                             <td>
                                                 <img alt="Slide" style={{ maxWidth: '90px' }} src={slide.slide_url} />
                                             </td>
-                                            <td>
-                                                <a href={slide.slide_url} target="blank">{slide.slide_url}</a>
+                                            <td >
+                                                <a href={slide.slide_url} target="blank">{(slide.slide_url.length > 50 ? slide.slide_url.substr(0, 20) + '...' : slide.slide_url)}</a>
                                             </td>
                                             <td>{slide.slide_alt}</td>
                                             <td>
-                                                <a href={slide.slide_url_a} target="blank">{slide.slide_url_a}</a>
+                                                <a href={slide.slide_url_a} target="blank">{(slide.slide_url_a > 50 ? slide.slide_url_a.substr(0, 20) + '...' : slide.slide_url_a)}</a>
                                             </td>
                                             <td>{slide.slide_ordem}
                                                 &nbsp;&nbsp;
