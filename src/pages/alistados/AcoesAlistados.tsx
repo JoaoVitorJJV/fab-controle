@@ -81,6 +81,7 @@ const AcoesAlistados = () => {
                                     <label htmlFor="exampleInputFile">Status</label>
                                     <select className="custom-select" onChange={(e) => setStatus(e.target.value)} required>
                                         <option selected value="Ativo">Ativo</option>
+                                        <option value="Demitido - Auto-Demissão">Demitido - Auto-Demissão</option>
                                         <option value="Demitido - Traição">Demitido - Traição</option>
                                         <option value="Demitido - Mau Comportamento">Demitido - Mau Comportamento</option>
                                         <option value="Demitido - Sem volta">Demitido - Sem volta</option>
