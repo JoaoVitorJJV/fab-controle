@@ -6,7 +6,7 @@ async function getUser() {
 //'http://192.168.0.104:3003/
 //https://fab-controle-api.herokuapp.com/
 const api = axios.create({
-    baseURL: 'https://fab-controle-api.herokuapp.com/',
+    baseURL: 'http://192.168.0.104:3003/',
     headers: { 'Content-Type': 'application/json' }
 });
 

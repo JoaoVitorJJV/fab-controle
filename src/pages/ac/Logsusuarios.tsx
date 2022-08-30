@@ -67,6 +67,7 @@ const LogsUsuarios = () => {
                         sortable: true,
                         left: true,
                         reorder: true,
+                        wrap: true,
                     },
                     {
                         id: 'datetime',

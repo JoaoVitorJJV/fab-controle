@@ -61,21 +61,6 @@ var menusOficial = [
     path: '/oficiais/relatorios',
     icon: 'fa-file'
   },
-  {
-    name: 'Site',
-    icon: 'fa fa-globe',
-    children: [
-      {
-        name: 'Avisos site',
-        path: '/oficiais/avisos'
-      },
-      {
-        name: 'Slides',
-        path: '/oficiais/slides'
-      }
-    ]
-  },
-
 ]
 
 var menuAC = [
@@ -93,7 +78,21 @@ var menuAC = [
       },
 
     ]
-  }
+  },
+  {
+    name: 'Site',
+    icon: 'fa fa-globe',
+    children: [
+      {
+        name: 'Avisos site',
+        path: '/oficiais/avisos'
+      },
+      {
+        name: 'Slides',
+        path: '/oficiais/slides'
+      }
+    ]
+  },
 ]
 
 var menusPraca = [

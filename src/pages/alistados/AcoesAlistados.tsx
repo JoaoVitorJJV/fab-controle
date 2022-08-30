@@ -85,6 +85,8 @@ const AcoesAlistados = () => {
                                         <option value="Demitido - Traição">Demitido - Traição</option>
                                         <option value="Demitido - Mau Comportamento">Demitido - Mau Comportamento</option>
                                         <option value="Demitido - Sem volta">Demitido - Sem volta</option>
+                                        <option value="Afastado">Afastado</option>
+                                        <option value="Aposentado">Aposentado</option>
                                     </select>
                                 </div>
                                 <label>Em caso de demissão, não se esqueça de fornecer a patente correta do Militar.</label>
