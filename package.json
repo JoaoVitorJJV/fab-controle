@@ -1,6 +1,6 @@
 {
   "name": "fab-controle",
-  "version": "1.17.15",
+  "version": "1.17.16",
   "private": true,
   "engines": {
     "node": "16.x"
